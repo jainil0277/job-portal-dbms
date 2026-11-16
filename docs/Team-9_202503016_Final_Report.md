@@ -6,6 +6,9 @@
 **Student ID:** 202503016  
 **Institution:** DA-IICT (Dhirubhai Ambani Institute of Information and Communication Technology), Gandhinagar  
 **Submission Date:** November 2026  
+**GitHub Repository:** [https://github.com/jainil0277/job-portal-dbms](https://github.com/jainil0277/job-portal-dbms)  
+**Google Drive Deliverables & Assets:** [https://drive.google.com/drive/folders/1-YPzq-1GSedNlsZaLJFIb87OvMb1X-61?usp=sharing](https://drive.google.com/drive/folders/1-YPzq-1GSedNlsZaLJFIb87OvMb1X-61?usp=sharing)  
+**Gemini AI Conversation Transcript:** [https://share.gemini.google/SxSMukY7vQ4z](https://share.gemini.google/SxSMukY7vQ4z)  
 
 ---
 

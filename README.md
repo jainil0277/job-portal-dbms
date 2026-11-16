@@ -11,7 +11,21 @@
 **Team:** Team 9  
 **Student ID:** 202503016  
 **Institution:** DA-IICT (Dhirubhai Ambani Institute of Information and Communication Technology), Gandhinagar  
-**Repository URL:** [https://github.com/jainil0277/job-portal-dbms](https://github.com/jainil0277/job-portal-dbms)  
+**GitHub Repository:** [https://github.com/jainil0277/job-portal-dbms](https://github.com/jainil0277/job-portal-dbms)  
+**Google Drive Deliverables & Assets:** [https://drive.google.com/drive/folders/1-YPzq-1GSedNlsZaLJFIb87OvMb1X-61?usp=sharing](https://drive.google.com/drive/folders/1-YPzq-1GSedNlsZaLJFIb87OvMb1X-61?usp=sharing)  
+**Gemini AI Prompting & Chat Transcript:** [https://share.gemini.google/SxSMukY7vQ4z](https://share.gemini.google/SxSMukY7vQ4z)  
+
+---
+
+## 🔗 Project Resources & Cloud Links
+
+- 📂 **Google Drive Folder (High-Res Diagrams, Submissions & Deliverables):**  
+  [https://drive.google.com/drive/folders/1-YPzq-1GSedNlsZaLJFIb87OvMb1X-61?usp=sharing](https://drive.google.com/drive/folders/1-YPzq-1GSedNlsZaLJFIb87OvMb1X-61?usp=sharing)  
+  *Contains raw PDFs, high-resolution ER diagrams, relational schemas, and lab reports.*
+
+- 🤖 **Gemini AI Conversation Transcript (Complete AI Collaboration Log):**  
+  [https://share.gemini.google/SxSMukY7vQ4z](https://share.gemini.google/SxSMukY7vQ4z)  
+  *Transparent audit log detailing the prompting workflow, schema refinement, normalization assistance, and SQL verification conducted during the project.*
 
 ---
 

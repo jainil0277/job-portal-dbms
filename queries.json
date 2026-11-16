@@ -1,0 +1,182 @@
+[
+  {
+    "number": 1,
+    "title": "Query 1",
+    "description": "Find all candidate profiles that are set to 'Public' visibility.",
+    "sql": "SELECT CandidateID, Name, Email, ExperienceLevel  \nFROM CANDIDATE  \nWHERE ProfileVisibility = 'Public';"
+  },
+  {
+    "number": 2,
+    "title": "Query 2",
+    "description": "Retrieve all active job postings that offer a minimum salary greater than or equal to 800,000 INR.",
+    "sql": "SELECT JobID, Title, Location, SalaryMin, SalaryMax  \nFROM JOB_POSTING  \nWHERE Status = 'Active' AND SalaryMin >= 800000.00;"
+  },
+  {
+    "number": 3,
+    "title": "Query 3",
+    "description": "List all registered companies headquartered in 'Ahmedabad, India'.",
+    "sql": "SELECT CompanyID, Name, Industry, Website  \nFROM COMPANY  \nWHERE HQ_Location = 'Ahmedabad, India';"
+  },
+  {
+    "number": 4,
+    "title": "Query 4",
+    "description": "Retrieve all default resumes uploaded across candidate profiles.",
+    "sql": "SELECT CandidateID, ResumeID, VersionName, FilePath  \nFROM RESUME  \nWHERE IsDefault = TRUE;"
+  },
+  {
+    "number": 5,
+    "title": "Query 5",
+    "description": "List all subscription plans with a price under 10,000 INR.",
+    "sql": "SELECT PlanID, TierName, PostingLimit, Credits, Price  \nFROM SUBSCRIPTION_PLAN  \nWHERE Price < 10000.00;"
+  },
+  {
+    "number": 6,
+    "title": "Query 6",
+    "description": "Find all verified employer accounts that have more than 10 posting credits remaining.",
+    "sql": "SELECT EmployerID, CompanyID, Email, CreditsRemaining  \nFROM EMPLOYER  \nWHERE VerificationStatus = 'Verified' AND CreditsRemaining > 10;"
+  },
+  {
+    "number": 7,
+    "title": "Query 7",
+    "description": "List all screening questions categorized as 'Text' type.",
+    "sql": "SELECT JobID, QuestionID, QuestionText  \nFROM SCREENING_QUESTION  \nWHERE QuestionType = 'Text';"
+  },
+  {
+    "number": 8,
+    "title": "Query 8",
+    "description": "Retrieve all job applications that are currently in the 'Interviewing' stage.",
+    "sql": "SELECT ApplicationID, CandidateID, JobID, Timestamp  \nFROM APPLICATION  \nWHERE Stage = 'Interviewing' AND IsDraft = FALSE;"
+  },
+  {
+    "number": 9,
+    "title": "Query 9",
+    "description": "List all candidates with an 'Entry-level' experience rating.",
+    "sql": "SELECT CandidateID, Name, Email, Phone  \nFROM CANDIDATE  \nWHERE ExperienceLevel = 'Entry-level';"
+  },
+  {
+    "number": 10,
+    "title": "Query 10",
+    "description": "Find all technical skills categorized under 'Backend'.",
+    "sql": "SELECT SkillID, SkillName  \nFROM SKILL  \nWHERE Category = 'Backend';"
+  },
+  {
+    "number": 11,
+    "title": "Query 11",
+    "description": "Retrieve all job postings alongside their corresponding employer's contact email and verification status.",
+    "sql": "SELECT j.JobID, j.Title, j.Location, e.Email AS EmployerEmail, \ne.VerificationStatus  \nFROM JOB_POSTING j \nJOIN EMPLOYER e ON j.EmployerID = e.EmployerID;"
+  },
+  {
+    "number": 12,
+    "title": "Query 12",
+    "description": "Count the total number of applications submitted for each job posting.",
+    "sql": "SELECT j.JobID, j.Title, COUNT(a.ApplicationID) AS TotalApplications  \nFROM JOB_POSTING j \nLEFT JOIN APPLICATION a ON j.JobID = a.JobID \nGROUP BY j.JobID, j.Title;"
+  },
+  {
+    "number": 13,
+    "title": "Query 13",
+    "description": "List all candidates and the names of the skills they possess along with their proficiency levels. --- PAGE 13 ---",
+    "sql": "SELECT c.CandidateID, c.Name, s.SkillName, cs.ProficiencyLevel, \ncs.YearsOfExperience  \nFROM CANDIDATE c \nJOIN CANDIDATE_SKILL cs ON c.CandidateID = cs.CandidateID \nJOIN SKILL s ON cs.SkillID = s.SkillID;"
+  },
+  {
+    "number": 14,
+    "title": "Query 14",
+    "description": "Find all educational qualifications belonging to candidates who applied for job 'JOB-001'.",
+    "sql": "SELECT DISTINCT c.Name, ed.Institution, ed.Degree, ed.GPA  \nFROM APPLICATION a \nJOIN CANDIDATE c ON a.CandidateID = c.CandidateID \nJOIN EDUCATION ed ON c.CandidateID = ed.CandidateID \nWHERE a.JobID = 'JOB-001';"
+  },
+  {
+    "number": 15,
+    "title": "Query 15",
+    "description": "Calculate the average expected salary of candidates grouped by their preferred work model.",
+    "sql": "SELECT PreferredWorkModel, AVG(ExpectedSalary) AS AvgExpectedSalary  \nFROM JOB_PREFERENCE  \nGROUP BY PreferredWorkModel;"
+  },
+  {
+    "number": 16,
+    "title": "Query 16",
+    "description": "List all employers along with the tier name and price of their active subscription plan.",
+    "sql": "SELECT e.EmployerID, e.Email, sp.TierName, sp.Price  \nFROM EMPLOYER e \nJOIN SUBSCRIPTION_PLAN sp ON e.PlanID = sp.PlanID;"
+  },
+  {
+    "number": 17,
+    "title": "Query 17",
+    "description": "Find mandatory skills required for each active job posting.",
+    "sql": "SELECT j.JobID, j.Title, s.SkillName, js.ProficiencyLevel  \nFROM JOB_POSTING j \nJOIN JOB_SKILL js ON j.JobID = js.JobID \nJOIN SKILL s ON js.SkillID = s.SkillID \nWHERE js.IsMandatory = TRUE AND j.Status = 'Active';"
+  },
+  {
+    "number": 18,
+    "title": "Query 18",
+    "description": "Display employer user accounts along with their parent company name and corporate role.",
+    "sql": "SELECT eu.UserID, eu.Name AS UserName, eu.Role, c.Name AS CompanyName  \nFROM EMPLOYER_USER eu \nJOIN EMPLOYER e ON eu.EmployerID = e.EmployerID \nJOIN COMPANY c ON e.CompanyID = c.CompanyID;"
+  },
+  {
+    "number": 19,
+    "title": "Query 19",
+    "description": "Find candidates who possess all mandatory skills required for job posting 'JOB-001'.",
+    "sql": "SELECT c.CandidateID, c.Name  \nFROM CANDIDATE c \nWHERE NOT EXISTS ( \n    SELECT js.SkillID  \n    FROM JOB_SKILL js  \n    WHERE js.JobID = 'JOB-001' AND js.IsMandatory = TRUE \n    EXCEPT \n    SELECT cs.SkillID  \n    FROM CANDIDATE_SKILL cs  \n    WHERE cs.CandidateID = c.CandidateID \n);"
+  },
+  {
+    "number": 20,
+    "title": "Query 20",
+    "description": "List all job applications including candidate name, job title, company name, and the file path of the attached resume.",
+    "sql": "SELECT a.ApplicationID, c.Name AS CandidateName, j.Title AS JobTitle, \ncomp.Name AS CompanyName, r.FilePath  \nFROM APPLICATION a \nJOIN CANDIDATE c ON a.CandidateID = c.CandidateID \nJOIN JOB_POSTING j ON a.JobID = j.JobID \nJOIN EMPLOYER e ON j.EmployerID = e.EmployerID \nJOIN COMPANY comp ON e.CompanyID = comp.CompanyID \nJOIN RESUME r ON a.CandidateID = r.CandidateID AND a.ResumeID = r.ResumeID;"
+  },
+  {
+    "number": 21,
+    "title": "Query 21",
+    "description": "Retrieve the top 3 highest-paying job postings per industry using window ranking functions.",
+    "sql": "WITH RankedJobs AS ( \n    SELECT j.JobID, j.Title, c.Industry, j.SalaryMax, \n           DENSE_RANK() OVER (PARTITION BY c.Industry ORDER BY j.SalaryMax \nDESC) AS rank_num \n    FROM JOB_POSTING j \n    JOIN EMPLOYER e ON j.EmployerID = e.EmployerID \n    JOIN COMPANY c ON e.CompanyID = c.CompanyID \n) \nSELECT JobID, Title, Industry, SalaryMax  \nFROM RankedJobs  \nWHERE rank_num <= 3;"
+  },
+  {
+    "number": 22,
+    "title": "Query 22",
+    "description": "Find candidates who have submitted applications to more than 3 different companies.",
+    "sql": "SELECT c.CandidateID, c.Name, COUNT(DISTINCT e.CompanyID) AS \nCompaniesAppliedTo  \nFROM CANDIDATE c \nJOIN APPLICATION a ON c.CandidateID = a.CandidateID \nJOIN JOB_POSTING j ON a.JobID = j.JobID \nJOIN EMPLOYER e ON j.EmployerID = e.EmployerID \nGROUP BY c.CandidateID, c.Name \nHAVING COUNT(DISTINCT e.CompanyID) > 3;"
+  },
+  {
+    "number": 23,
+    "title": "Query 23",
+    "description": "Retrieve screening questions and their submitted candidate answers for a specific application 'APP-001'.",
+    "sql": "SELECT sq.QuestionID, sq.QuestionText, aa.AnswerText, aa.AnsweredAt  \nFROM APPLICATION_ANSWER aa \nJOIN SCREENING_QUESTION sq ON aa.JobID = sq.JobID AND aa.QuestionID = \nsq.QuestionID \nWHERE aa.ApplicationID = 'APP-001';"
+  },
+  {
+    "number": 24,
+    "title": "Query 24",
+    "description": "Identify companies that have posted jobs but have not received any applications yet.",
+    "sql": "SELECT c.CompanyID, c.Name  \nFROM COMPANY c \nJOIN EMPLOYER e ON c.CompanyID = e.CompanyID \nJOIN JOB_POSTING j ON e.EmployerID = j.EmployerID \nWHERE j.JobID NOT IN (SELECT DISTINCT JobID FROM APPLICATION);"
+  },
+  {
+    "number": 25,
+    "title": "Query 25",
+    "description": "Calculate total revenue generated per subscription tier based on active employer subscriptions.",
+    "sql": "SELECT sp.TierName, COUNT(e.EmployerID) AS TotalSubscribers, SUM(sp.Price) AS \nTotalRevenue  \nFROM SUBSCRIPTION_PLAN sp \nJOIN EMPLOYER e ON sp.PlanID = e.PlanID \nGROUP BY sp.TierName;"
+  },
+  {
+    "number": 26,
+    "title": "Query 26",
+    "description": "Find candidates whose expected salary is lower than the minimum salary offered by job postings in their location.",
+    "sql": "SELECT DISTINCT c.CandidateID, c.Name, jp.ExpectedSalary, j.Title, \nj.SalaryMin, j.Location  \nFROM CANDIDATE c \nJOIN JOB_PREFERENCE jp ON c.CandidateID = jp.CandidateID \nJOIN JOB_POSTING j ON j.Location = c.Location \nWHERE jp.ExpectedSalary < j.SalaryMin;"
+  },
+  {
+    "number": 27,
+    "title": "Query 27",
+    "description": "List candidates who have earned a GPA above 8.5 and possess at least one 'Advanced' skill.",
+    "sql": "SELECT DISTINCT c.CandidateID, c.Name, ed.GPA, s.SkillName, \ncs.ProficiencyLevel  \nFROM CANDIDATE c \nJOIN EDUCATION ed ON c.CandidateID = ed.CandidateID \nJOIN CANDIDATE_SKILL cs ON c.CandidateID = cs.CandidateID \nJOIN SKILL s ON cs.SkillID = s.SkillID \nWHERE ed.GPA > 8.50 AND cs.ProficiencyLevel = 'Advanced';"
+  },
+  {
+    "number": 28,
+    "title": "Query 28",
+    "description": "Calculate the average time to hire per job posting for applications that reached the 'Hired' stage.",
+    "sql": "SELECT j.JobID, j.Title, AVG(EXTRACT(DAY FROM (aa.AnsweredAt - a.Timestamp))) \nAS AvgDaysToHire  \nFROM APPLICATION a \nJOIN JOB_POSTING j ON a.JobID = j.JobID \nLEFT JOIN APPLICATION_ANSWER aa ON a.ApplicationID = aa.ApplicationID \nWHERE a.Stage = 'Hired' \nGROUP BY j.JobID, j.Title;"
+  },
+  {
+    "number": 29,
+    "title": "Query 29",
+    "description": "Create a PostgreSQL function to deduct one credit from an employer upon posting a job.",
+    "sql": "CREATE OR REPLACE FUNCTION deduct_employer_credit(emp_id VARCHAR)  \nRETURNS VOID AS $$ \nBEGIN \n    UPDATE EMPLOYER  \n    SET CreditsRemaining = CreditsRemaining - 1  \n    WHERE EmployerID = emp_id AND CreditsRemaining > 0; \nEND; \n$$ LANGUAGE plpgsql;"
+  },
+  {
+    "number": 30,
+    "title": "Query 30",
+    "description": "Create an automated trigger that prevents candidates from submitting duplicate active applications to the same job posting.",
+    "sql": "CREATE OR REPLACE FUNCTION check_duplicate_application()  \nRETURNS TRIGGER AS $$ \nBEGIN \n    IF EXISTS ( \n        SELECT 1 FROM APPLICATION  \n        WHERE CandidateID = NEW.CandidateID  \n          AND JobID = NEW.JobID  \n          AND Stage NOT IN ('Rejected') \n    ) THEN \n        RAISE EXCEPTION 'Candidate has already applied for this position.'; \n    END IF; \n    RETURN NEW; \nEND;\n$$ LANGUAGE plpgsql;"
+  }
+]

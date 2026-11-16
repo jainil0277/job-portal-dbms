@@ -210,27 +210,21 @@ The following screenshots demonstrate the working Graphical User Interface (buil
 
 ### 5.1 Candidate Portal: Job Search & Application
 ![Candidate Job Search](report_assets/gui_candidate_search.png)
-*Figure 5.1: Candidates can search jobs with multi-criteria filters (keywords, location, employment type), inspect full job details and salary ranges, and submit 1-click applications.*
 
 ### 5.2 Candidate Portal: Profile & Qualifications Setup
 ![Candidate Profile Setup](report_assets/gui_candidate_profile.png)
-*Figure 5.2: Dedicated tabs to manage personal bio, college education with GPA, work experience history, resume uploads (enforcing max 5 resumes constraint), and technical skills.*
 
 ### 5.3 Employer Portal: Job Posting & Credit Management
 ![Employer Job Posting](report_assets/gui_employer_post.png)
-*Figure 5.3: Employers can create new job postings, manage screening questions, and observe live credit deductions (1 credit deducted per active post).*
 
 ### 5.4 Employer Portal: Applicant Tracking System (ATS)
 ![Employer ATS Pipeline](report_assets/gui_employer_ats.png)
-*Figure 5.4: Recruiters inspect candidates who applied, examine their resumes and screening answers, and update their stage from 'Applied' to 'Shortlisted', 'Interviewing', or 'Hired'.*
 
 ### 5.5 Platform Operations & Admin Analytics Dashboard
 ![Admin Analytics](report_assets/gui_admin_analytics.png)
-*Figure 5.5: Real-time platform KPI metrics (total candidates, jobs, applications, employers) along with charts for subscription tier revenue and stage distributions.*
 
 ### 5.6 Lab 10A SQL Query Explorer
 ![SQL Query Explorer](report_assets/gui_sql_explorer.png)
-*Figure 5.6: Interactive SQL runner pre-loaded with all 30 Lab 10A queries, showing natural English descriptions, live execution times, and returned database records.*
 
 ---
 

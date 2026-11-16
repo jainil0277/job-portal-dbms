@@ -1,82 +1,112 @@
 # Job Portal Database System — Final Project GUI
 
+[![GitHub Repository](https://img.shields.io/badge/GitHub-jainil0277%2Fjob--portal--dbms-181717?style=flat&logo=github)](https://github.com/jainil0277/job-portal-dbms)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Database](https://img.shields.io/badge/Database-PostgreSQL%20%7C%20SQLite-336791?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![License](https://img.shields.io/badge/Course-DA--IICT%20MC212-blue)](https://www.daiict.ac.in/)
+
 **Course:** MC212 — Database Management Systems  
 **Project:** Job Portal Database System  
 **Team:** Team 9  
 **Student ID:** 202503016  
 **Institution:** DA-IICT (Dhirubhai Ambani Institute of Information and Communication Technology), Gandhinagar  
+**Repository URL:** [https://github.com/jainil0277/job-portal-dbms](https://github.com/jainil0277/job-portal-dbms)  
 
 ---
 
 ## 🌟 Overview
 
-This is the comprehensive, production-grade graphical user interface (GUI) developed for the MC212 DBMS final project. Built on top of the fully normalized **Lab 9 BCNF Schema (16 tables)** and integrating all **30 analytical and transactional queries from Lab 10A**, this system provides an end-to-end recruitment platform.
+This is the production-grade graphical user interface (GUI) developed for the MC212 DBMS final project. Built on top of the fully normalized **Lab 9 BCNF Schema (16 tables)** and integrating all **30 analytical and transactional queries from Lab 10A**, this system provides an end-to-end recruitment platform.
 
 ### Core Capabilities:
-1. **Live PostgreSQL Connectivity:** Direct connection to `job_portal_db` via `psycopg2` on port 5432. All updates, insertions, and status transitions persist immediately to the database.
-2. **Offline Fallback Engine:** Automatic SQLite mirror pre-seeded with all 16 relations and realistic data, allowing standalone demonstration on any system without database configuration.
-3. **Multi-Role Portal Access:**
-   - 👤 **Candidate Portal:** Job discovery, multi-filter search, resume version management, dynamic custom screening answers, and duplicate application prevention.
-   - 🏢 **Employer & Recruiter Portal:** Job posting lifecycle, automatic credit deduction via PostgreSQL stored function, live applicant tracking system (ATS), and stage progression pipeline.
-   - 🛡️ **Platform Operations & Admin:** Employer verification workflow, platform KPI analytics, and Lab 10A analytical reports (tier revenue, top-paying jobs by industry, unfilled roles, time-to-hire metrics).
-   - ⚡ **Lab 10A SQL Query Explorer:** Pre-loaded query runner for all 30 Lab 10A queries with English descriptions, execution times, interactive data tables, and an open SQL console.
+1. **Zero-Configuration Instant Launch:** Bundled with a fully seeded local database (`job_portal_local.db`) containing all 16 relations and 1,600 tuples. Anyone cloning this repository can launch the GUI immediately with zero database installation required.
+2. **Live PostgreSQL Connectivity:** Full support for direct PostgreSQL connection (`job_portal_db` via `psycopg2` on port 5432). All updates, insertions, and status transitions persist immediately to the database.
+3. **Multi-Role Portals:**
+   - **Candidate Portal:** Multi-filter job search, qualification setup, resume manager (enforcing 5-resume cap BC2), and duplicate application prevention.
+   - **Employer & Recruiter Portal:** Job posting lifecycle, automatic credit deduction via PostgreSQL stored function, live applicant tracking system (ATS), and stage progression pipeline.
+   - **Platform Operations & Admin:** Employer verification workflow, live platform KPI metrics, and analytical reports.
+   - **Lab 10A SQL Query Explorer:** Pre-loaded runner for all 30 Lab 10A queries with execution times, interactive data tables, and an open SQL console.
 
 ---
 
-## 🚀 How to Run the Application
+## 🚀 Quick Start (Anyone Can Run This in 1 Minute)
 
-### Prerequisites
-- Python 3.10+ (tested with Python 3.11 & 3.14)
-- PostgreSQL (optional if using the built-in SQLite mirror)
-
-### Quick Start (1-Click)
+### 1. Clone the Repository
 ```bash
-cd job_portal_app
+git clone https://github.com/jainil0277/job-portal-dbms.git
+cd job-portal-dbms
+```
+
+### 2. Launch the Application
+
+#### On macOS / Linux:
+```bash
+chmod +x run.sh
 ./run.sh
 ```
 
-### Manual Launch
+#### On Windows:
+Double-click `run.bat` or run in Command Prompt:
+```cmd
+run.bat
+```
+
+#### Or Run Manually with Python:
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The application will launch automatically in your default browser at:
+The application will launch automatically in your default browser at:  
 👉 **`http://localhost:8501`**
 
 ---
 
-## 🔌 Database Configuration
+## 🔌 Database Connectivity Options
 
-* **PostgreSQL (Default & Recommended):**
-  - Host: `localhost`
-  - Port: `5432`
+The application works out of the box in two modes:
+
+### Mode 1: Instant Bundled Mode (Default & Automatic)
+- The app automatically starts in SQLite mode using the pre-seeded `job_portal_local.db` if PostgreSQL is not installed locally.
+- All 16 tables and 1,600 pre-generated realistic records are loaded instantly.
+- You can perform all search, apply, posting, and ATS actions with zero setup.
+
+### Mode 2: Connect to PostgreSQL (Production)
+- If you have PostgreSQL installed locally:
   - Database: `job_portal_db`
-  - Username: `postgres`
-  - Password: `team9`
-  
-  *The application auto-connects to this instance on startup.*
-
-* **Offline Mirror Mode:**
-  - Select **SQLite (Offline Mirror)** in the sidebar to run the application entirely offline.
+  - User: `postgres`
+  - Password: `team9` (or change it in the sidebar)
+- To load the schema and data into your PostgreSQL instance:
+  ```bash
+  psql -U postgres -c "CREATE DATABASE job_portal_db;"
+  psql -U postgres -d job_portal_db -f sql/schema_dump.sql
+  psql -U postgres -d job_portal_db -f sql/data_dump.sql
+  ```
+- In the GUI sidebar, select **PostgreSQL** under Database Connection. The connection pill will turn green.
 
 ---
 
 ## 📂 Project Directory Structure
 
 ```
-job_portal_app/
-├── app.py                  # Main Streamlit UI application with 4 portals
-├── db.py                   # Unified database driver (PostgreSQL + SQLite)
-├── schema_sqlite.py        # Local database initialization & seed generator
-├── queries.json            # Structured catalog of all 30 Lab 10A queries
-├── run.sh                  # Shell launcher script
-├── requirements.txt        # Python dependency manifest
-├── README.md               # Project documentation and guide
+job-portal-dbms/
+├── app.py                      # Main Streamlit UI application with 4 portals
+├── db.py                       # Unified database driver (PostgreSQL + SQLite)
+├── schema_sqlite.py            # Local database initialization & seed generator
+├── job_portal_local.db         # Bundled offline database with all 16 tables
+├── queries.json                # Structured catalog of all 30 Lab 10A queries
+├── run.sh                      # 1-Click launcher for macOS & Linux
+├── run.bat                     # 1-Click launcher for Windows
+├── requirements.txt            # Python dependency manifest
+├── README.md                   # Project documentation and guide
+├── docs/                       # Final Project Report (PDF and Markdown)
+│   ├── Team-9_202503016_Final_Report.pdf
+│   └── Team-9_202503016_Final_Report.md
 └── sql/
-    ├── schema_dump.sql     # Live PostgreSQL schema dump with tables, PK/FK, triggers
-    ├── data_dump.sql       # Full database records dump
-    └── lab10a_queries.sql  # All 30 Lab 10A SQL queries with English problem statements
+    ├── schema_dump.sql         # PostgreSQL schema dump (tables, PK/FK, triggers)
+    ├── data_dump.sql           # Full database records dump (1,600 tuples)
+    └── lab10a_queries.sql      # All 30 Lab 10A SQL queries with problem statements
 ```
 
 ---
@@ -91,3 +121,8 @@ job_portal_app/
 | **Lab 9 (DDL & BCNF)** | PostgreSQL DDL script with CHECK constraints & ENUMs | Dropdown enums, GPA [0-10] bounds, salary constraints |
 | **Lab 10A (SQL Bank)** | 30 Complex Queries, deduct credit procedure, duplicate trigger | Dedicated interactive Query Explorer + live analytics dashboards |
 
+---
+
+## 📄 License & Academic Attribution
+Developed as part of the MC212 Database Management Systems course at **DA-IICT**, Gandhinagar, Autumn Semester 2024-25 by **Team 9 (Student ID: 202503016)**.
+All rights reserved.

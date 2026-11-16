@@ -526,6 +526,12 @@ def render_sidebar():
                 <strong style="color:#94A3B8;">Team 9</strong> · DA-IICT<br>
                 <span style="color:#475569;">Sem 3 · 2024-25</span>
             </div>
+            <div style="margin-top:10px;">
+                <a href="https://github.com/jainil0277/job-portal-dbms" target="_blank" 
+                   style="display:inline-block; padding:5px 12px; background:#162032; border:1px solid #334155; border-radius:4px; color:#38BDF8; font-size:0.75rem; font-weight:600; text-decoration:none;">
+                    GitHub Repository &rarr;
+                </a>
+            </div>
         </div>
         """, unsafe_allow_html=True)
 

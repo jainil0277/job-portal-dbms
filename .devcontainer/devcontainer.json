@@ -1,0 +1,23 @@
+{
+  "name": "Team 9 Job Portal DBMS GUI",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      },
+      "extensions": [
+        "ms-python.python"
+      ]
+    }
+  },
+  "forwardPorts": [8501],
+  "portsAttributes": {
+    "8501": {
+      "label": "Job Portal GUI",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+  "postStartCommand": "streamlit run app.py --server.port=8501 --server.headless=true --server.address=0.0.0.0"
+}

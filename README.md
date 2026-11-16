@@ -1,5 +1,6 @@
 # Job Portal Database System — Final Project GUI
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jainil0277/job-portal-dbms)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-jainil0277%2Fjob--portal--dbms-181717?style=flat&logo=github)](https://github.com/jainil0277/job-portal-dbms)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io/)
@@ -12,8 +13,18 @@
 **Student ID:** 202503016  
 **Institution:** DA-IICT (Dhirubhai Ambani Institute of Information and Communication Technology), Gandhinagar  
 **GitHub Repository:** [https://github.com/jainil0277/job-portal-dbms](https://github.com/jainil0277/job-portal-dbms)  
+**1-Click Cloud GUI (In Browser):** [Launch in GitHub Codespaces](https://codespaces.new/jainil0277/job-portal-dbms)  
 **Google Drive Deliverables & Assets:** [https://drive.google.com/drive/folders/1-YPzq-1GSedNlsZaLJFIb87OvMb1X-61?usp=sharing](https://drive.google.com/drive/folders/1-YPzq-1GSedNlsZaLJFIb87OvMb1X-61?usp=sharing)  
 **Gemini AI Prompting & Chat Transcript:** [https://share.gemini.google/SxSMukY7vQ4z](https://share.gemini.google/SxSMukY7vQ4z)  
+
+---
+
+## 🌐 Instant In-Browser Cloud Launch (Zero Install Needed)
+
+Anyone reading this project can run and explore the live interactive GUI directly in their web browser without downloading files, installing Python, or setting up databases:
+
+👉 **[Launch Live GUI with GitHub Codespaces](https://codespaces.new/jainil0277/job-portal-dbms)**  
+*(Spins up an automated cloud environment, pre-loads the bundled database, and pops open the Streamlit GUI in a browser tab).*
 
 ---
 

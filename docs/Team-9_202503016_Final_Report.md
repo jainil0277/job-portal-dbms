@@ -7,6 +7,7 @@
 **Institution:** DA-IICT (Dhirubhai Ambani Institute of Information and Communication Technology), Gandhinagar  
 **Submission Date:** November 2026  
 **GitHub Repository:** [https://github.com/jainil0277/job-portal-dbms](https://github.com/jainil0277/job-portal-dbms)  
+**1-Click Cloud GUI (Open in Browser):** [Launch in GitHub Codespaces](https://codespaces.new/jainil0277/job-portal-dbms)  
 **Google Drive Deliverables & Assets:** [https://drive.google.com/drive/folders/1-YPzq-1GSedNlsZaLJFIb87OvMb1X-61?usp=sharing](https://drive.google.com/drive/folders/1-YPzq-1GSedNlsZaLJFIb87OvMb1X-61?usp=sharing)  
 **Gemini AI Conversation Transcript:** [https://share.gemini.google/SxSMukY7vQ4z](https://share.gemini.google/SxSMukY7vQ4z)  
 
@@ -206,7 +207,12 @@ The schema was refined step-by-step from 1NF to Boyce-Codd Normal Form (BCNF). I
 
 ## 5. Screenshots of GUI Showing All Functionality
 
-The following screenshots demonstrate the working Graphical User Interface (built with Streamlit and connected live to PostgreSQL):
+> **Instant Cloud GUI Access (Run in Browser without Installing Anything):**  
+> Anyone can launch and interact with the full live GUI directly in any web browser via GitHub Codespaces without installing Python, PostgreSQL, or downloading ZIP files:  
+> 👉 [**Click Here to Launch GUI in GitHub Codespaces**](https://codespaces.new/jainil0277/job-portal-dbms)  
+> 👉 [**GitHub Source Code Repository**](https://github.com/jainil0277/job-portal-dbms)
+
+The following screenshots demonstrate the working Graphical User Interface (built with Streamlit and connected live to PostgreSQL or the bundled SQLite mirror):
 
 ### 5.1 Candidate Portal: Job Search & Application
 ![Candidate Job Search](report_assets/gui_candidate_search.png)

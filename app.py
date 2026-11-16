@@ -324,9 +324,25 @@ html, body, [data-testid="stAppViewContainer"] {
     border-radius: 6px !important;
     font-weight: 600 !important;
     font-size: 0.88rem !important;
-    padding: 6px 18px !important;
+    padding: 8px 18px !important;
     letter-spacing: -0.01em;
+    background: #1E293B !important;
+    color: #F8FAFC !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     transition: all 0.15s ease !important;
+}
+.stButton > button:hover {
+    background: #2563EB !important;
+    border-color: #3B82F6 !important;
+    color: #FFFFFF !important;
+}
+.stButton > button[kind="primary"] {
+    background: #2563EB !important;
+    border-color: #3B82F6 !important;
+    color: #FFFFFF !important;
+}
+.stButton > button[kind="primary"]:hover {
+    background: #1D4ED8 !important;
 }
 div[data-testid="stExpander"] {
     border: 1px solid var(--border-color) !important;

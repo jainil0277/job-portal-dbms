@@ -436,7 +436,7 @@ class DatabaseManager:
 
         emp_sql = """
         INSERT INTO EMPLOYER (EmployerID, CompanyID, PlanID, Email, Phone, VerificationStatus, CreditsRemaining)
-        VALUES (%s, %s, %s, %s, %s, 'Verified', %s)
+        VALUES (%s, %s, %s, %s, %s, 'Pending', %s)
         """
         _, err = self.execute_query(emp_sql, [new_emp_id, new_comp_id, plan_id, email, phone, init_credits], fetch=False)
         if err:

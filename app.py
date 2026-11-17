@@ -1527,9 +1527,8 @@ def portal_employer():
                         st.error(f"Registration failed: {err}")
                     else:
                         st.session_state["registered_emp_id"] = new_eid
-                        st.success(f"Company **{new_cname}** successfully registered! Assigned Employer ID: **{new_eid}** (Company ID: {new_cid})")
-                        st.balloons()
-                        st.info("The new employer account is now active and selected in the dropdown above!")
+                        st.success(f"Company **{new_cname}** successfully registered! Assigned Employer ID: **{new_eid}** (Status: **Pending Admin Verification**).")
+                        st.info("Account is now created. To activate job posting privileges, switch to the Admin Dashboard to review and approve this company.")
                         st.rerun()
 
 
